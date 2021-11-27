@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Rsa\Rsa.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Texts\" />
+  </ItemGroup>
+
 </Project>

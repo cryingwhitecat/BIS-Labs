@@ -23,7 +23,7 @@ namespace Lab4
             var rsa = new RsaAlgorithm(cert);
             var permutationTable = Enumerable.Range(0, permutationTableLength).Select(x => (byte)x).Reverse();
             var symmetricAlg = new PermutationTableAlgorithm(permutationTable);
-            var message = Encoding.UTF8.GetBytes("hello world");
+            var message = Encoding.UTF8.GetBytes("hello world hello world");
             var hash = hashing.GetHash(message);
             Console.WriteLine($"Init hash: {hash.GetHexString()}");
             var messageStream = new MemoryStream(message);

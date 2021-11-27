@@ -23,26 +23,51 @@ namespace Lab4.Encryption
         {
             var input = inputStream.ReadAllBytes();
             var inputLength = input.Length;
-            var output = new byte[inputLength];
-            for (int i = 0; i < inputLength; i++)
+            byte[] result = null;
+            var blocksCount = inputLength / permutationTableLength;
+            blocksCount = blocksCount == 0 ? 1 : blocksCount;
+            for (int i = 0; i < blocksCount; i++)
             {
-                var outputPos = Array.FindIndex(permutations, x => x == i % permutationTableLength);
-                output[outputPos] = input[i];
+                var block = input.Skip(i * permutationTableLength).Take(permutationTableLength).ToArray();
+                block = block.Concat(new byte[permutationTableLength - block.Length]).ToArray();
+                var encryptedBlock = new byte[permutationTableLength];
+                for (int j = 0; j < block.Length; j++)
+                {
+                    var encryptedPos = permutations[j];
+                    encryptedBlock[encryptedPos] = block[j];
+                }
+                result = result == null ? encryptedBlock : result.Concat(encryptedBlock).ToArray();
             }
-            outputStream.Write(output, 0, output.Length);
+            outputStream.Write(result, 0, result.Length);
         }
 
         public void Encrypt(Stream inputStream, Stream outputStream)
         {
             var input = inputStream.ReadAllBytes();
             var inputLength = input.Length;
-            var output = new byte[inputLength];
-            for(int i = 0; i < inputLength; i++)
+            byte[] result = null;
+            var blocksCount = inputLength / permutationTableLength;
+            blocksCount = blocksCount == 0 ? 1 : blocksCount;
+            for (int i = 0; i <= blocksCount; i++)
             {
-                var outputPos = permutations[i % permutationTableLength];
-                output[outputPos] = input[i];
+                var block = input.Skip(i * permutationTableLength).Take(permutationTableLength).ToArray();
+                block = block.Concat(new byte[permutationTableLength - block.Length]).ToArray();
+                var encryptedBlock = new byte[permutationTableLength];
+                for (int j = 0; j < permutationTableLength; j++)
+                {
+                    var encryptedPos = permutations[j];
+                    encryptedBlock[j] = block[encryptedPos % block.Length];
+                }
+                if (result == null)
+                {
+                    result = encryptedBlock;
+                }
+                else
+                {
+                    result = result.Concat(encryptedBlock).ToArray();
+                }
             }
-            outputStream.Write(output, 0, output.Length);
+            outputStream.Write(result, 0, result.Length);
         }
     }
 }
