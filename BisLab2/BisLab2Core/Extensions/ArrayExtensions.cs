@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Core.Extensions
 {
@@ -9,6 +10,11 @@ namespace Core.Extensions
             T[] slice = new T[length > source.Length ? source.Length : length];
             Array.Copy(source, index, slice, 0, length > (source.Length - index) ? (source.Length - index) : length);
             return slice;
+        }
+
+        public static string GetHexString(this byte[] input)
+        {
+            return string.Join(" ", input.Select(x => x.ToString("X2")));
         }
     }
 }

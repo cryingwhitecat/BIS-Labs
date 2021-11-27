@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TripleDes", "BisLab2TripleD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "BisLab2Core\Core.csproj", "{0BC4C9DD-9854-4CF9-8657-4E7F8FA3179A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rsa", "Rsa\Rsa.csproj", "{DEA3B2BA-CF96-474D-BA36-9F2BC25897E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rsa", "Rsa\Rsa.csproj", "{DEA3B2BA-CF96-474D-BA36-9F2BC25897E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab4", "Lab4\Lab4.csproj", "{1B3D76CC-5CFF-4C4C-8BD8-418F2E8592B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{DEA3B2BA-CF96-474D-BA36-9F2BC25897E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEA3B2BA-CF96-474D-BA36-9F2BC25897E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEA3B2BA-CF96-474D-BA36-9F2BC25897E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B3D76CC-5CFF-4C4C-8BD8-418F2E8592B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B3D76CC-5CFF-4C4C-8BD8-418F2E8592B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B3D76CC-5CFF-4C4C-8BD8-418F2E8592B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B3D76CC-5CFF-4C4C-8BD8-418F2E8592B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

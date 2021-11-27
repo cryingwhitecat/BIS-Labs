@@ -1,6 +1,6 @@
 ﻿using BisLab2.Core;
 using BisLab2.Core.KeyTransformers;
-using Core.Encryption;
+using Core.Abstractions;
 using System;
 using System.IO;
 using System.Text;
@@ -11,7 +11,7 @@ namespace BisLab2TripleDes
     class Program
     {
         private static KeyTransformer keyTransformer = new KeyTransformer();
-        private static IEncryptionAlgorithm desEncryptor = new TripleDesAlgorithm();
+        private static IKeyedEncryptionAlgorithm desEncryptor = new TripleDesAlgorithm();
         private static string basePath = AppDomain.CurrentDomain.BaseDirectory + "../../../";
         private static string encryptedPath = "Texts/triple-des-encrypted.hex";
         private static string plaintextPath = "Texts/plaintext.txt";

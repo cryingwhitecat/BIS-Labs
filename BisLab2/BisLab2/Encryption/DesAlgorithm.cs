@@ -1,10 +1,10 @@
-﻿using Core.Encryption;
+﻿using Core.Abstractions;
 using System.IO;
 using System.Security.Cryptography;
 
 namespace BisLab2.Des.Encryption
 {
-    internal class DesAlgorithm: IEncryptionAlgorithm
+    internal class DesAlgorithm: IKeyedEncryptionAlgorithm
     {
         public void Encrypt(byte[] input, byte[] key, Stream outputStream)
         {

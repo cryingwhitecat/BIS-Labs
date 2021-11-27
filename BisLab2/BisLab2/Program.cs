@@ -1,7 +1,7 @@
 ﻿using BisLab2.Core;
 using BisLab2.Core.KeyTransformers;
 using BisLab2.Des.Encryption;
-using Core.Encryption;
+using Core.Abstractions;
 using System;
 using System.IO;
 using System.Text;
@@ -11,7 +11,7 @@ namespace Core
     class Program
     {
         private static KeyTransformer keyTransformer = new KeyTransformer();
-        private static IEncryptionAlgorithm desEncryptor = new DesAlgorithm();
+        private static IKeyedEncryptionAlgorithm desEncryptor = new DesAlgorithm();
         private static string basePath = AppDomain.CurrentDomain.BaseDirectory + "../../../";
         private static string encryptedPath = "Texts/des-encrypted.hex";
         private static string plaintextPath = "Texts/plaintext.hex";

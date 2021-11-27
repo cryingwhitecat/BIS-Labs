@@ -1,10 +1,10 @@
-﻿using Core.Encryption;
+﻿using Core.Abstractions;
 using System.IO;
 using System.Security.Cryptography;
 
 namespace TripleDes.Encryption
 {
-    class TripleDesAlgorithm : IEncryptionAlgorithm
+    class TripleDesAlgorithm : IKeyedEncryptionAlgorithm
     {
         public string Decrypt(Stream inputStream, byte[] key)
         {

@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
+using System.Text;
 
 namespace Rsa
 {
@@ -21,8 +22,9 @@ namespace Rsa
             }
             using (var outputFile = File.Open(Path.Combine(basePath, "Texts/encrypted.hex"), FileMode.OpenOrCreate))
             {
-                var decrypted = rsa.Decrypt(outputFile);
-                Console.WriteLine($"decrypted text: {decrypted}");
+                var decryptedStream = new MemoryStream();
+                rsa.Decrypt(outputFile, decryptedStream);
+                Console.WriteLine($"decrypted text: {Encoding.UTF8.GetString(decryptedStream.ToArray())}");
             }
         }
     }
